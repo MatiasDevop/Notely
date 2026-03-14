@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Notely.AppHost/Notely.AppHost.csproj" />
+  <Project Path="Notely.ServiceDefaults/Notely.ServiceDefaults.csproj" />
+  <Project Path="Notes.Api/Notes.Api.csproj" />
+  <Project Path="Tags.Api/Tags.Api.csproj" />
+</Solution>
