@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Notes.Api.Data;
+using Notes.Api.Features.CreateNote;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,11 @@ builder.AddServiceDefaults();
 builder.Services.AddDbContext<NoteDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("notely-notes")));
 builder.EnrichNpgsqlDbContext<NoteDbContext>();
+
+builder.Services.AddHttpClient("TagsApi", client =>
+{
+    client.BaseAddress = new Uri("https+http://tags-api");
+});
 
 builder.Services.AddOpenApi();
 
@@ -27,6 +33,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapPost("notes", CreateNoteEndpoint.CreateNote);
 
 app.Run();
 

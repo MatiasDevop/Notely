@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Tags.Api.Data;
+using Tags.Api.Features.AnalyzeNote;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapPost("/tags/analyze", AnalyzeNoteEndpoint.AnalyzeNote);
 
 app.Run();
 

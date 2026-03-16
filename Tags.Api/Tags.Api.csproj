@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Notely.ServiceDefaults\Notely.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\Notely.Shared\Notely.Shared.csproj" />
   </ItemGroup>
 
 </Project>
